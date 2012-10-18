@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project default="jar">
+	<property name="src" location="src" />
+	<property name="test" location="test" />
+	<property name="classes" location="bin" />
+	<target name="compile">
+		<mkdir dir="${classes}" />
+		<javac destdir="${classes}" classpath="lib\commons-compress-1.4.1.jar">
+			<src path="${src}" />
+			<src path="${test}" />
+			<include name="**/*.java" />
+			<exclude name="**/*Test.java"/>
+		</javac>
+	</target>
+	<target name="jar" depends="compile">
+		<jar jarfile="CbzCompressor.jar">
+			<fileset dir="${classes}" />
+			<fileset dir="exlib" />
+			<manifest>
+				<attribute name="Main-Class" value="CbzCompressor"/>
+			</manifest>
+		</jar>
+	</target>
+</project>

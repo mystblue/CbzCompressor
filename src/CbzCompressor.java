@@ -30,7 +30,7 @@ public class CbzCompressor extends JFrame implements DropTargetListener {
 	}
 	
     public void dragEnter(DropTargetDragEvent dtde) {
-        dtde.acceptDrag(DnDConstants.ACTION_COPY);
+        dtde.acceptDrag(DnDConstants.ACTION_COPY_OR_MOVE);
     }
 
     public void dragOver(DropTargetDragEvent dtde) {
